@@ -244,6 +244,9 @@ html {
 }
 
 body {
+  background-size: cover;
+  background-position: center top;
+  background-color: #fff;
   display: flex;
   flex-direction: column;
   min-height: 100%;
@@ -255,7 +258,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
   padding: 0;
-  background-color: #fff;
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -299,37 +301,6 @@ li {
 
 .container.small {
   max-width: 936px;
-}
-
-.btn {
-  font-size: 16px;
-  font-family: "Gilroy";
-  font-weight: 400;
-  display: flex;
-  width: fit-content;
-  align-items: center;
-  justify-content: center;
-  padding: 22px 32px;
-  line-height: 140%;
-  cursor: pointer;
-  border-radius: 2px;
-  border: 2px solid transparent;
-  transition: color 0.3s ease, background-color 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
-}
-
-.btn:active {
-  transform: translateY(2px);
-}
-
-.fillBtn {
-  background-color: #ddcfc6;
-  color: #17171a;
-}
-
-.ghostBtn {
-  background-color: transparent;
-  color: #ddcfc6;
-  border-color: #ddcfc6;
 }
 
 button {
@@ -708,6 +679,7 @@ button {
 }
 
 .price__list .list-item__title {
+  line-height: 120%;
   font-size: 24px;
   margin-bottom: 30px;
 }
@@ -788,6 +760,15 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: border-radius 0.3s ease, color 0.3s ease, background-color 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+}
+
+.list-item__btn:active {
+  transform: translateY(2px);
+}
+
+.list-item__btn:hover {
+  border-radius: 4px;
 }
 
 .faq,
@@ -803,6 +784,123 @@ button {
   flex-direction: column;
   align-items: center;
   text-align: center;
+}
+
+.faq__list {
+  width: 100%;
+  padding-top: 30px;
+}
+
+.faq__item {
+  transition: border-color 0.5s ease-in-out;
+  width: 100%;
+  border: 1px solid #ebebeb;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  margin-bottom: 10px;
+  background-color: #fff;
+}
+
+.faq__item:hover {
+  border-color: #17171a;
+}
+
+.faq__item.open {
+  border-color: #17171a;
+}
+
+.faq__item.open .item__head:after {
+  transform: rotate(180deg);
+}
+
+.faq__item .item__body {
+  display: none;
+}
+
+.faq__item .item__head {
+  cursor: pointer;
+  padding: 30px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  font-size: 24px;
+}
+
+.faq__item .item__head:after {
+  transition: transform 0.5s ease-in-out;
+  display: block;
+  content: "";
+  width: 22px;
+  height: 22px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='23' height='14' viewBox='0 0 23 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M0.590625 1.08816C0.173187 1.26997 -0.0598124 1.74491 0.0282501 2.2346C0.0656876 2.44278 0.654313 3.05285 5.30081 7.69941C9.94738 12.3459 10.5574 12.9345 10.7656 12.972C11.3584 13.0786 11.0141 13.3845 16.6992 7.69941C22.3827 2.01591 22.0806 2.35578 21.9705 1.76891C21.9128 1.46128 21.5389 1.08741 21.2313 1.02972C20.6469 0.920033 20.9411 0.661533 15.7654 5.8321L10.9996 10.5933L6.26544 5.8621C3.61394 3.21228 1.45387 1.10216 1.35531 1.0656C1.11994 0.978158 0.823062 0.986908 0.590625 1.08816Z' fill='%23515151'/%3e%3c/svg%3e ");
+}
+
+.faq__item .item__body {
+  padding: 30px;
+  padding-top: 0;
+}
+
+.contacts {
+  padding: 75px 0;
+}
+
+.contacts .section-descriptor {
+  margin-bottom: 60px;
+}
+
+.contacts .contacts__block {
+  margin-bottom: 30px;
+}
+
+.contacts .block-nameplate {
+  margin-bottom: 10px;
+  color: #515151;
+}
+
+.contacts .block-link {
+  color: #17171a;
+  width: fit-content;
+}
+
+.contacts__content {
+  width: 50%;
+}
+
+.social-block {
+  display: flex;
+}
+
+.social-item {
+  transition: border-color 0.2s ease-in-out;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid #c2c2c2;
+  border-radius: 50%;
+}
+
+.social-item:hover {
+  border-color: #17171a;
+}
+
+.social-item:hover svg {
+  filter: contrast(200%);
+}
+
+.social-item svg {
+  transition: filter 0.2s ease-in-out;
+  width: 16px;
+  height: 16px;
 }
 
 @media (max-width: 1366px) {

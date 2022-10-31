@@ -58,3 +58,9 @@ document.querySelectorAll('input[type="tel"]').forEach(input => {
     });
 });
 
+
+//Аккардеон секции faq
+$("[data-toggle-elem]").click(function () {
+    $(this).parent().toggleClass('open')
+    $(this).parent().find("[data-toggle-content]").slideToggle("slow");
+});
