@@ -20,6 +20,15 @@ window.addEventListener('load', (e) => {
 
 
 
+
+
+// Маска на номера телефона
+document.querySelectorAll('input[type="tel"]').forEach(input => {
+    const mask = IMask(input, {
+        mask: '+{7}(000) 000-00-00'
+    });
+});
+
 // Инит и опции библиотеки анимаций
 AOS.init({
     // Global settings:
@@ -44,19 +53,36 @@ AOS.init({
 //логика работы меню бургер
 document.body.addEventListener('click', (e) => {
     const target = e.target;
-    if (target.closest('[data-burger-menu]')) {
-        target.closest('[data-burger-menu]').classList.toggle('active');
-        document.querySelector('[data-header-menu]').classList.toggle('active');
-        document.body.classList.toggle('hidden');
+
+    // Закрыть меню по клику вне меню 
+    if (!target.closest('[data-mega-menu]') && document.querySelector('[data-mega-menu]').classList.contains('show')) {
+        document.querySelector('[data-mega-menu]').classList.remove('show');
     }
+    // Закрыть форму по клику вне формы
+    if (!target.closest('[data-fixed-form]') && document.querySelector('[data-fixed-form]').classList.contains('show')) {
+        document.querySelector('[data-fixed-form]').classList.remove('show');
+    }
+
+    // Открыть меню
+    if (target.closest('[data-open-menu]')) {
+        document.querySelector('[data-mega-menu]').classList.add('show');
+    }
+    // Закрыть меню
+    if (target.closest('[data-close-menu]')) {
+        document.querySelector('[data-mega-menu]').classList.remove('show');
+    }
+
+    // Открыть форму
+    if (target.closest('[data-open-fixed-form]')) {
+        document.querySelector('[data-fixed-form]').classList.add('show');
+    }
+    // Закрыть форму
+    if (target.closest('[data-close-fixed-form]')) {
+        document.querySelector('[data-fixed-form]').classList.remove('show');
+    }
+
 });
 
-// Маска на номера телефона
-document.querySelectorAll('input[type="tel"]').forEach(input => {
-    const mask = IMask(input, {
-        mask: '+{7}(000) 000-00-00'
-    });
-});
 
 
 //Аккардеон секции faq
@@ -64,3 +90,17 @@ $("[data-toggle-elem]").click(function () {
     $(this).parent().toggleClass('open')
     $(this).parent().find("[data-toggle-content]").slideToggle("slow");
 });
+
+// Скрол к началу страницы из футера 
+$("#toTop").click(function () {
+    $("body,html").animate({
+        scrollTop: 0,
+    },
+        {
+            duration: 800,
+            easing: "swing"
+        });
+    return false;
+});
+
+
