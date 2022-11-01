@@ -1318,6 +1318,37 @@ button {
   .main-title {
     font-size: 48px;
   }
+
+  .contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .contacts__wrap {
+    position: static;
+  }
+
+  .map-container,
+  .contacts__content {
+    width: 100%;
+  }
+
+  .contacts__content {
+    text-align: center;
+  }
+
+  .block-link {
+    margin: auto;
+  }
+
+  .social-block {
+    justify-content: center;
+  }
+
+  .contacts .section-descriptor {
+    margin-bottom: 30px;
+  }
 }
 
 @media (max-width: 768px) {

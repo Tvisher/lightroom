@@ -1,12 +1,6 @@
 'use strict';
 import * as baseFunction from './modules/functions.js';
 import './vendors/vendors.js';
-import Swiper, {
-    Navigation,
-    Pagination,
-    Autoplay,
-    EffectFade,
-} from 'swiper';
 
 import AOS from 'aos';
 import IMask from 'imask';
@@ -17,9 +11,6 @@ baseFunction.testWebP();
 window.addEventListener('load', (e) => {
     document.body.style.opacity = 1;
 });
-
-
-
 
 
 // Маска на номера телефона
