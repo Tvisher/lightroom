@@ -1276,6 +1276,12 @@ button {
   z-index: 1;
 }
 
+@media (max-width: 1720px) {
+  .mega-menu {
+    padding: 38px 20px;
+  }
+}
+
 @media (max-width: 1366px) {
   .galery-item {
     width: calc(50% - 10px);
