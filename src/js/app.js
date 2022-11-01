@@ -95,3 +95,11 @@ $("#toTop").click(function () {
 });
 
 
+
+// Прокрутка колёсиком секции
+$(function () {
+    $(".main-section__cats").mousewheel(function (event, delta) {
+        this.scrollLeft -= (delta * 30);
+        event.preventDefault();
+    });
+});
