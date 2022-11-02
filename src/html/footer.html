@@ -2,7 +2,7 @@
     <div class="container">
         <div class="footer__wrapper">
             <div class="footer__item">
-                <a href="#" class="footer__logo">
+                <a href="./index.html" class="footer__logo">
                     <img src="@img/logo-w.svg" alt="">
                 </a>
                 <span class="vertical-line"></span>
@@ -18,7 +18,7 @@
             <div class="footer__item">
                 <div class="dev-text">Дизайн и разработка</div>
                 <span class="vertical-line"></span>
-                <a href="#" class="dev-logo">
+                <a href="https://wemake.kz/" class="dev-logo">
                     <img src="@img/dev-logo.svg" alt="">
                 </a>
             </div>
@@ -45,5 +45,27 @@
 
 </body>
 <script src="./js/app.min.js"></script>
+<script>
+    //Галерея на главной странице
+    const mainGalery = $('.galery-grid').masonry({
+        columnWidth: '.galery-item',
+        itemSelector: '.galery-item',
+        gutter: 10,
+        percentPosition: true,
+        horizontalOrder: true
+    });
+
+    document.querySelector('.styles-btn').onclick = (e) => {
+        e.preventDefault();
+        // JQ обьект с элементами для вставки, которые будут получены с бэка
+        var $items = $('<a href="#" class="galery-item horizontal">...</a>');
+        // Ильекция в галерею 
+        mainGalery.append($items).masonry('appended', $items);
+    }
+
+</script>
+
+
+
 
 </html>

@@ -20,6 +20,58 @@
                                   not supported by any browser */
 }
 
+/* Стрелки */
+::-webkit-scrollbar-button:vertical:start:decrement {
+  background: linear-gradient(120deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
+    linear-gradient(240deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
+    linear-gradient(0deg, #02141a 30%, rgba(0, 0, 0, 0) 31%);
+  background-color: #f6f8f4;
+  display: none;
+}
+
+::-webkit-scrollbar-button:vertical:end:increment {
+  background: linear-gradient(300deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
+    linear-gradient(60deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
+    linear-gradient(180deg, #02141a 30%, rgba(0, 0, 0, 0) 31%);
+  background-color: #f6f8f4;
+  display: none;
+}
+
+::-webkit-scrollbar-button:horizontal:start:decrement {
+  background: linear-gradient(30deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
+    linear-gradient(150deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
+    linear-gradient(270deg, #02141a 30%, rgba(0, 0, 0, 0) 31%);
+  background-color: #f6f8f4;
+  display: none;
+}
+
+::-webkit-scrollbar-button:horizontal:end:increment {
+  background: linear-gradient(210deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
+    linear-gradient(330deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
+    linear-gradient(90deg, #02141a 30%, rgba(0, 0, 0, 0) 31%);
+  background-color: #f6f8f4;
+  display: none;
+}
+
+/* полоса прокрутки (скроллбар) */
+::-webkit-scrollbar {
+  width: 4px; /* ширина для вертикального скролла */
+  height: 4px; /* высота для горизонтального скролла */
+  background-color: #c2c2c2;
+  border-radius: 4px;
+}
+
+/* ползунок скроллбара */
+::-webkit-scrollbar-thumb {
+  background-color: #17171a;
+  border-radius: 9em;
+  // box-shadow: inset 1px 1px 10px #f3faf7;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #253861;
+}
+
 $index: calc(1vw + 1vh);
 
 html {
@@ -79,11 +131,6 @@ li {
   margin: 0;
   padding: 0;
 }
-
-// *::selection {
-//   background: #fff;
-//   color: #000;
-// }
 
 .container {
   width: 100%;
@@ -242,9 +289,12 @@ li {
   display: flex;
   gap: 16px;
   align-items: center;
-  overflow: auto;
+  // overflow: auto;
+  flex-wrap: nowrap;
+  overflow-x: auto;
 }
 .cats__btn {
+  overflow-x: auto;
   flex-shrink: 0;
   font-weight: 500;
   padding: 16px 32px;
@@ -297,7 +347,7 @@ li {
   }
 
   &::before {
-    transition: transform 1.2s ease-in-out, opacity 0.8s ease-in-out 0.2s;
+    transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
     opacity: 0;
     transform: translateY(100%);
     z-index: 2;
@@ -1427,10 +1477,10 @@ li {
     padding: 30px;
   }
   .project-nav__prev::after {
-    left: 15px;
+    left: 10px;
   }
   .project-nav__next::after {
-    right: 15px;
+    right: 10px;
   }
 
   .inner-head__title {
@@ -1439,11 +1489,37 @@ li {
   .inner-head__tags {
     justify-content: flex-start;
   }
+  .inner-head__descr {
+    font-size: 22px;
+  }
 }
 
 @media (max-width: 576px) {
   .project-nav__prev,
   .project-nav__next {
     font-size: 20px;
+  }
+  .inner-head__descr {
+    font-size: 20px;
+  }
+}
+@media (max-width: 480px) {
+  .inner-head__title {
+    margin-bottom: 20px;
+  }
+  .inner-head__descr {
+    font-size: 18px;
+  }
+  .inner-head__title {
+    grid-template: 10px;
+  }
+
+  .header__logo,
+  .footer__logo {
+    height: 58px;
+    width: 198px;
+  }
+  .header__wrapper {
+    margin-bottom: 20px;
   }
 }

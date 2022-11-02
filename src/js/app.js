@@ -96,15 +96,8 @@ $("#toTop").click(function () {
 });
 
 
-$('.galery-grid').masonry({
-    columnWidth: '.galery-item',
-    itemSelector: '.galery-item',
-    gutter: 10,
-    percentPosition: true,
-    horizontalOrder: true
-});
 
-
+//Галерея на внутренней странице
 $('.inner-galery__grid').masonry({
     columnWidth: '.inner-galery__item.small',
     itemSelector: '.inner-galery__item',
@@ -113,7 +106,7 @@ $('.inner-galery__grid').masonry({
     horizontalOrder: true
 });
 
-
+//Инит Fancybox
 Fancybox.bind("[data-fancybox]", {
     hideScrollbar: false,
 });
