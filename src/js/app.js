@@ -5,6 +5,8 @@ import './vendors/vendors.js';
 import AOS from 'aos';
 import IMask from 'imask';
 
+import { Fancybox } from "@fancyapps/ui";
+
 // Проверка поддержки webP
 baseFunction.testWebP();
 
@@ -75,7 +77,6 @@ document.body.addEventListener('click', (e) => {
 });
 
 
-
 //Аккардеон секции faq
 $("[data-toggle-elem]").click(function () {
     $(this).parent().toggleClass('open')
@@ -95,10 +96,24 @@ $("#toTop").click(function () {
 });
 
 
-// // Прокрутка колёсиком секции
-// $(function () {
-//     $(".main-section__cats").mousewheel(function (event, delta) {
-//         this.scrollLeft -= (delta * 30);
-//         event.preventDefault();
-//     });
-// });
+$('.galery-grid').masonry({
+    columnWidth: '.galery-item',
+    itemSelector: '.galery-item',
+    gutter: 10,
+    percentPosition: true,
+    horizontalOrder: true
+});
+
+
+$('.inner-galery__grid').masonry({
+    columnWidth: '.inner-galery__item.small',
+    itemSelector: '.inner-galery__item',
+    gutter: 10,
+    percentPosition: true,
+    horizontalOrder: true
+});
+
+
+Fancybox.bind("[data-fancybox]", {
+    hideScrollbar: false,
+});
