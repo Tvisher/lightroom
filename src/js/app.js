@@ -109,4 +109,7 @@ $('.inner-galery__grid').masonry({
 //Инит Fancybox
 Fancybox.bind("[data-fancybox]", {
     hideScrollbar: false,
+    Image: {
+        zoom: false,
+    },
 });
