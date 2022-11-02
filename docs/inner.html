@@ -345,7 +345,7 @@
         horizontalOrder: true
     });
 
-    document.querySelector('.styles-btn').onclick = (e) => {
+    document.querySelector('.styles-btn')?.onclick = (e) => {
         e.preventDefault();
         // JQ обьект с элементами для вставки, которые будут получены с бэка
         var $items = $('<a href="#" class="galery-item horizontal">...</a>');
