@@ -23,8 +23,8 @@ document.querySelectorAll('input[type="tel"]').forEach(input => {
 });
 
 // Инит и опции библиотеки анимаций
-AOS.init({
-    // Global settings:
+window.AOS = AOS;
+window.AOS.init({
     disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
     startEvent: 'load', // name of the event dispatched on the document, that AOS should initialize on
     initClassName: 'aos-init', // class applied after initialization
@@ -73,7 +73,6 @@ document.body.addEventListener('click', (e) => {
     if (target.closest('[data-close-fixed-form]')) {
         document.querySelector('[data-fixed-form]').classList.remove('show');
     }
-
 });
 
 
@@ -96,12 +95,12 @@ $("#toTop").click(function () {
 });
 
 
-
 //Галерея на внутренней странице
 $('.inner-galery__grid').masonry({
     columnWidth: '.inner-galery__item.small',
     itemSelector: '.inner-galery__item',
     gutter: 10,
+    transitionDuration: '0.6s',
     percentPosition: true,
     horizontalOrder: true
 });
